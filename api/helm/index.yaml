@@ -3,7 +3,7 @@ entries:
   pc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-11-24T14:52:55.9652808Z"
+    created: "2020-11-24T19:42:46.7490078Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
     digest: c860b1af96831908a11d8bcdcf01479cd2061a4aecaf26b5f9e23aa90f8a42c6
@@ -16,7 +16,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: 11.7.0
-    created: "2020-11-24T14:52:55.9747628Z"
+    created: "2020-11-24T19:42:46.7652591Z"
     deprecated: true
     description: DEPRECATED Chart for PostgreSQL, an object-relational database management
       system (ORDBMS) with an emphasis on extensibility and on standards-compliance.
@@ -36,4 +36,17 @@ entries:
     urls:
     - charts/postgresql-8.6.4.tgz
     version: 8.6.4
-generated: "2020-11-24T14:52:55.959053Z"
+  wari:
+  - apiVersion: v1
+    appVersion: V1.0
+    created: "2020-11-24T19:42:46.7560243Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 20d276f24a6dc97cdc570c2e7aa2f2f007493f6459439a0edf266910639bdf83
+    home: wari.zaakonline.nl
+    icon: wari.zaakonline.nl
+    name: wari
+    urls:
+    - wari-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-11-24T19:42:46.7429866Z"
