@@ -97,12 +97,15 @@ class Certificate
     private $organization;
 
     /**
+     * @Assert\NotNull
+     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */
     private $person;
 
     /**
+     * @Assert\NotNull
      * @Groups({"read", "write"})
      * @ORM\Column(type="json")
      */
