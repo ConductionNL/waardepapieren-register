@@ -1,18 +1,18 @@
 openapi: 3.0.2
 info:
-  title: 'Proto component commonground'
+  title: 'Waardepappieren Register'
   version: V1.0
   description: |
     API Details
-    - Component: Proto component commonground
-    - Reference: pc
+    - Component: Waardepappieren Register
+    - Reference: wari
     - Enviroment: dev
     - Version: V1.0
-    - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
-    - Datamodel: [postman](/schema/pc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
+    - Repository: [online](https://github.com/ConductionNL/waardepapieren-register) / [zip](https://github.com/ConductionNL/waardepapieren-register/archive/master.zip)
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/wari-php) 
+    - Datamodel: [postman](/schema/wari.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
+    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
 paths:
   /audit_trails:
@@ -2439,12 +2439,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-16 13:03:53'
+        example: '2020-11-24 14:56:29'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-16 13:03:53'
+        example: '2020-11-24 14:56:29'
     required: []
   AuditTrail-write:
     properties:
@@ -2492,12 +2492,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-16 13:03:53'
+        example: '2020-11-24 14:56:29'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-16 13:03:53'
+        example: '2020-11-24 14:56:29'
     required: []
   ChangeLog-write:
     properties:
@@ -2539,7 +2539,7 @@ host: irc.zaakonline.nl
 servers:
   -
     name: conduction.nl
-    url: pc.dev.conduction.nl
+    url: wari.dev.conduction.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
