@@ -21,6 +21,15 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * An entity representing an (variviable) claim.
+ *
+ * This entity represents an order for sales
+ *
+ * @author Ruben van der Linde <ruben@conduction.nl>
+ *
+ * @category entity
+ *
+ * @license EUPL <https://github.com/ConductionNL/productenendienstencatalogus/blob/master/LICENSE.md>
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
  *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},

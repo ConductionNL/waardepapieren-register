@@ -1036,6 +1036,1062 @@ paths:
             schema:
               $ref: '#/components/schemas/AuditTrail-write'
         description: 'The updated AuditTrail resource'
+  /certificates:
+    get:
+      tags:
+        - Certificate
+      operationId: getCertificateCollection
+      summary: 'Retrieves the collection of Certificate resources.'
+      responses:
+        200:
+          description: 'Certificate collection response'
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Certificate:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/json+ld:
+              schema:
+                type: object
+                properties:
+                  'hydra:member': { type: array, items: { $ref: '#/components/schemas/Certificate:jsonld-read' } }
+                  'hydra:totalItems': { type: integer, minimum: 0 }
+                  'hydra:view': { type: object, properties: { '@id': { type: string, format: iri-reference }, '@type': { type: string }, 'hydra:first': { type: string, format: iri-reference }, 'hydra:last': { type: string, format: iri-reference }, 'hydra:next': { type: string, format: iri-reference } } }
+                  'hydra:search': { type: object, properties: { '@type': { type: string }, 'hydra:template': { type: string }, 'hydra:variableRepresentation': { type: string }, 'hydra:mapping': { type: array, items: { type: object, properties: { '@type': { type: string }, variable: { type: string }, property: { type: string }, required: { type: boolean } } } } } }
+                required:
+                  - 'hydra:member'
+            application/hal+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Certificate-read'
+      parameters:
+        -
+          name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[organization]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[person]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[claim]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[image]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[document]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateExpired]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateCreated]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[dateModified]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'dateExpired[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateExpired[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateExpired[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateExpired[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateCreated[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_before]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'dateModified[strictly_after]'
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: id
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: 'id[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        -
+          name: organization
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: person
+          in: query
+          required: false
+          schema:
+            type: string
+        -
+          name: page
+          in: query
+          required: false
+          description: 'The collection page number'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: limit
+          in: query
+          required: false
+          description: 'The number of items per page'
+          schema:
+            type: integer
+            default: 30
+            minimum: 0
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      produces:
+        - application/health+json
+    post:
+      tags:
+        - Certificate
+      operationId: postCertificateCollection
+      summary: 'Creates a Certificate resource.'
+      responses:
+        201:
+          description: 'Certificate resource created'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+          links:
+            GetCertificateItem:
+              parameters:
+                id: '$response.body#/id'
+              operationId: getCertificateItem
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /certificates/{id}`.'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Certificate:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Certificate:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+        description: 'The new Certificate resource'
+      parameters:
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/certificates/{id}':
+    get:
+      tags:
+        - Certificate
+      operationId: getCertificateItem
+      summary: 'Retrieves a Certificate resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Certificate resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+    put:
+      tags:
+        - Certificate
+      operationId: putCertificateItem
+      summary: 'Replaces the Certificate resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+      responses:
+        200:
+          description: 'Certificate resource updated'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+        400:
+          description: 'Invalid input'
+        404:
+          description: 'Resource not found'
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Certificate:jsonld-write'
+          application/json+ld:
+            schema:
+              $ref: '#/components/schemas/Certificate:jsonld-write'
+          application/hal+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+hal:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+vnd.api:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/health+json:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/json+health:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          text/csv:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/Certificate-write'
+        description: 'The updated Certificate resource'
+    delete:
+      tags:
+        - Certificate
+      operationId: deleteCertificateItem
+      summary: 'Removes the Certificate resource.'
+      responses:
+        204:
+          description: 'Certificate resource deleted'
+        404:
+          description: 'Resource not found'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+  '/certificates/{id}/audit_trail':
+    get:
+      tags:
+        - Certificate
+      operationId: get_audit_trailCertificateItem
+      summary: 'Retrieves a Certificate resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Certificate resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
+  '/certificates/{id}/change_log':
+    get:
+      tags:
+        - Certificate
+      operationId: get_change_logsCertificateItem
+      summary: 'Retrieves a Certificate resource.'
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        -
+          name: Authorization
+          description: 'The JWT of the entity performing the request'
+          in: header
+        -
+          name: API-Version
+          description: 'The version of the API conform [Landelijke API-strategie.](https://geonovum.github.io/KP-APIs/#versioning)'
+          example: 1.0.1
+          in: header
+        -
+          name: X-NLX-Logrecord-ID
+          description: 'A  globally unique id of the request, which makes a request traceable throughout the network.'
+          in: header
+        -
+          name: X-NLX-Request-Process-Id
+          description: 'A process id for purpose registration (doelbinding)'
+          in: header
+        -
+          name: X-NLX-Request-Data-Elements
+          description: 'A list of requested data elements'
+          in: header
+        -
+          name: X-NLX-Request-Data-Subject
+          description: 'A key-value list of data subjects related to this request. e.g. `bsn=12345678, kenteken=ab-12-fg`'
+          in: header
+        -
+          name: X-NLX-Audit-Clarification
+          description: 'A clarification as to why a request has been made  (doelbinding)'
+          in: header
+        -
+          name: Link
+          description: 'A [websub](https://www.w3.org/TR/websub/#discovery) header like <https://hub.example.com/>; rel="hub"'
+          in: header
+        -
+          name: 'extend[]'
+          required: false
+          description: 'An array of nested objects to include in the return object'
+          in: query
+          schema:
+            type: array
+        -
+          name: 'fields[]'
+          required: false
+          description: 'An array of fields to return in output, wil return all fields is not supplied'
+          in: query
+          schema:
+            type: array
+        -
+          name: validOn
+          required: false
+          description: 'Returns object as valid on a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validFrom
+          required: false
+          description: 'Returns objects valid from a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+        -
+          name: validUntil
+          required: false
+          description: 'Returns objects valid until a given date time'
+          schema:
+            type: string
+            format: date-time
+          in: query
+      responses:
+        200:
+          description: 'Certificate resource response'
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/json+ld:
+              schema:
+                $ref: '#/components/schemas/Certificate:jsonld-read'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+hal:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+vnd.api:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/health+json:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/json+health:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            application/x-yaml:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Certificate-read'
+        404:
+          description: 'Resource not found'
+      produces:
+        - application/health+json
   /change_logs:
     get:
       tags:
@@ -2217,6 +3273,174 @@ components:
         '@type':
           readOnly: true
           type: string
+    Certificate-read:
+      type: object
+      description: 'An entity representing an (variviable) claim.'
+      properties:
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+          format: uuid
+        organization:
+          description: 'A specific commonground organisation'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        person:
+          type: string
+        claim:
+          type: array
+          items:
+            type: string
+        image:
+          type: string
+          nullable: true
+        document:
+          type: string
+          nullable: true
+        dateExpired:
+          description: 'The moment this claim is due to expire'
+          type: string
+          format: date-time
+          nullable: true
+        dateCreated:
+          description: 'The moment this request was created by the submitter'
+          type: string
+          format: date-time
+          nullable: true
+        dateModified:
+          description: 'The moment this request was modified by the submitter'
+          type: string
+          format: date-time
+          nullable: true
+      required:
+        - organization
+    Certificate-write:
+      type: object
+      description: 'An entity representing an (variviable) claim.'
+      required:
+        - organization
+      properties:
+        organization:
+          description: 'A specific commonground organisation'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        person:
+          type: string
+        claim:
+          type: array
+          items:
+            type: string
+        image:
+          type: string
+          nullable: true
+        document:
+          type: string
+          nullable: true
+        dateExpired:
+          description: 'The moment this claim is due to expire'
+          type: string
+          format: date-time
+          nullable: true
+    'Certificate:jsonld-read':
+      type: object
+      description: 'An entity representing an (variviable) claim.'
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          description: 'The UUID identifier of this resource'
+          externalDocs:
+            url: 'http://schema.org/identifier'
+          type: string
+          format: uuid
+        organization:
+          description: 'A specific commonground organisation'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        person:
+          type: string
+        claim:
+          type: array
+          items:
+            type: string
+        image:
+          type: string
+          nullable: true
+        document:
+          type: string
+          nullable: true
+        dateExpired:
+          description: 'The moment this claim is due to expire'
+          type: string
+          format: date-time
+          nullable: true
+        dateCreated:
+          description: 'The moment this request was created by the submitter'
+          type: string
+          format: date-time
+          nullable: true
+        dateModified:
+          description: 'The moment this request was modified by the submitter'
+          type: string
+          format: date-time
+          nullable: true
+      required:
+        - organization
+    'Certificate:jsonld-write':
+      type: object
+      description: 'An entity representing an (variviable) claim.'
+      required:
+        - organization
+      properties:
+        '@context':
+          readOnly: true
+          type: string
+        '@id':
+          readOnly: true
+          type: string
+        '@type':
+          readOnly: true
+          type: string
+        organization:
+          description: 'A specific commonground organisation'
+          externalDocs:
+            url: 'http://schema.org/url'
+          type: string
+          nullable: true
+        person:
+          type: string
+        claim:
+          type: array
+          items:
+            type: string
+        image:
+          type: string
+          nullable: true
+        document:
+          type: string
+          nullable: true
+        dateExpired:
+          description: 'The moment this claim is due to expire'
+          type: string
+          format: date-time
+          nullable: true
     ChangeLog-read:
       type: object
       description: 'An resource representing a log line.'
@@ -2335,6 +3559,49 @@ components:
           readOnly: true
           type: string
 definitions:
+  Certificate-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this resource'
+        type: string
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      organization:
+        description: 'A specific commonground organisation'
+        type: string
+        example: 'https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f'
+        format: url
+      person: []
+      claim: []
+      image: []
+      document: []
+      dateExpired:
+        description: 'The moment this claim is due to expire'
+        type: \DateTime
+      dateCreated:
+        description: 'The moment this request was created by the submitter'
+        type: \DateTime
+      dateModified:
+        description: 'The moment this request was modified by the submitter'
+        type: \DateTime
+    required:
+      - organization
+  Certificate-write:
+    properties:
+      organization:
+        description: 'A specific commonground organisation'
+        type: string
+        example: 'https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f'
+        format: url
+      person: []
+      claim: []
+      image: []
+      document: []
+      dateExpired:
+        description: 'The moment this claim is due to expire'
+        type: \DateTime
+    required:
+      - organization
   AuditTrail-read:
     properties:
       id:
@@ -2439,12 +3706,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-11-24 19:15:50'
+        example: '2020-11-24 19:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-11-24 19:15:50'
+        example: '2020-11-24 19:43:49'
     required: []
   AuditTrail-write:
     properties:
@@ -2492,12 +3759,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-11-24 19:15:50'
+        example: '2020-11-24 19:43:49'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-11-24 19:15:50'
+        example: '2020-11-24 19:43:49'
     required: []
   ChangeLog-write:
     properties:
@@ -2508,6 +3775,12 @@ definitions:
         maxLength: 2555
     required: []
 tags:
+  -
+    name: Certificate
+    description: |
+      An entity representing an (variviable) claim.
+      
+      This entity represents an order for sales
   -
     name: AuditTrail
     description: |
