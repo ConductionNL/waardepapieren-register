@@ -105,9 +105,8 @@ class Certificate
     private $person;
 
     /**
-     * @Assert\NotNull
      * @Groups({"read", "write"})
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json", nullable=true)
      */
     private $claim = [];
 
