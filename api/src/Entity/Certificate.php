@@ -106,9 +106,9 @@ class Certificate
 
     /**
      * @Groups({"read", "write"})
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $claim = [];
+    private $claim;
 
     /**
      * @Groups({"read", "write"})
@@ -184,12 +184,12 @@ class Certificate
         return $this;
     }
 
-    public function getClaim(): ?array
+    public function getClaim(): ?string
     {
         return $this->claim;
     }
 
-    public function setClaim(array $claim): self
+    public function setClaim(?string $claim): self
     {
         $this->claim = $claim;
 
