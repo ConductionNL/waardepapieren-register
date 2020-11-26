@@ -120,6 +120,12 @@ class Certificate
 
     /**
      * @Groups({"read", "write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $jwt;
+
+    /**
+     * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
@@ -209,9 +215,21 @@ class Certificate
         return $this->claim;
     }
 
-    public function setClaim(?string $claim): self
+    public function setClaim(?array $claim): self
     {
         $this->claim = $claim;
+
+        return $this;
+    }
+
+    public function getJwt(): ?array
+    {
+        return $this->jwt;
+    }
+
+    public function setJwt(?string $jwt): self
+    {
+        $this->jwt = $jwt;
 
         return $this;
     }
