@@ -84,6 +84,14 @@ class Certificate
     private $id;
 
     /**
+     * @Assert\NotNull
+     * @Assert\Url
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @var string A specific commonground organisation
      *
      * @example https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f
@@ -156,6 +164,18 @@ class Certificate
     public function setId(Uuid $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
