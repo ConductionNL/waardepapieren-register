@@ -85,7 +85,6 @@ class Certificate
 
     /**
      * @Assert\NotNull
-     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */
@@ -106,7 +105,6 @@ class Certificate
 
     /**
      * @Assert\NotNull
-     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */
