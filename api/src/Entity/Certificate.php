@@ -104,6 +104,10 @@ class Certificate
     private $organization;
 
     /**
+     * @var string The URL to the person the certificate is given out for
+     *
+     * @example https://waardepapieren-gemeentehoorn.commonground.nu/api/v1/brp/ingeschrevenpersonen/uuid/bc1a8ffb-d428-4a83-a1fc-5f331ea799ce
+     *
      * @Assert\NotNull
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
@@ -111,24 +115,32 @@ class Certificate
     private $person;
 
     /**
+     * @var string The claim that is verified with this certificate
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $claim;
 
     /**
+     * @var string The JWT version of the certificate
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="array", nullable=true)
      */
     private $jwt;
 
     /**
+     * @var string a PNG-encoded QR-code for the certificate
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
 
     /**
+     * @var string a PDF document containing the JWT version of the certificate and the image
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
