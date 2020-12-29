@@ -2,22 +2,19 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use DateTime;
 use DateTimeInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -84,6 +81,13 @@ class Certificate
     private $id;
 
     /**
+     * @Assert\NotNull
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type;
+
+    /**
      * @var string A specific commonground organisation
      *
      * @example https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f
@@ -97,26 +101,43 @@ class Certificate
     private $organization;
 
     /**
+     * @var string The URL to the person the certificate is given out for
+     *
+     * @example https://waardepapieren-gemeentehoorn.commonground.nu/api/v1/brp/ingeschrevenpersonen/uuid/bc1a8ffb-d428-4a83-a1fc-5f331ea799ce
+     *
      * @Assert\NotNull
-     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255)
      */
     private $person;
 
     /**
+     * @var string The claim that is verified with this certificate
+     *
      * @Groups({"read", "write"})
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $claim = [];
+    private $claim;
 
     /**
+     * @var string The JWT version of the certificate
+     *
+     * @Groups({"read", "write"})
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $jwt;
+
+    /**
+     * @var string a PNG-encoded QR-code for the certificate
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
 
     /**
+     * @var string a PDF document containing the JWT version of the certificate and the image
+     *
      * @Groups({"read", "write"})
      * @ORM\Column(type="text", nullable=true)
      */
@@ -160,6 +181,18 @@ class Certificate
         return $this;
     }
 
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     public function getOrganization(): ?string
     {
         return $this->organization;
@@ -184,14 +217,26 @@ class Certificate
         return $this;
     }
 
-    public function getClaim(): ?array
+    public function getClaim(): ?string
     {
         return $this->claim;
     }
 
-    public function setClaim(array $claim): self
+    public function setClaim(?array $claim): self
     {
         $this->claim = $claim;
+
+        return $this;
+    }
+
+    public function getJwt(): ?array
+    {
+        return $this->jwt;
+    }
+
+    public function setJwt(?string $jwt): self
+    {
+        $this->jwt = $jwt;
 
         return $this;
     }
