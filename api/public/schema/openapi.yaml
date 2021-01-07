@@ -1132,6 +1132,15 @@ paths:
               - asc
               - desc
         -
+          name: 'order[type]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
           name: 'order[organization]'
           in: query
           required: false
@@ -1151,6 +1160,15 @@ paths:
               - desc
         -
           name: 'order[claim]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        -
+          name: 'order[jwt]'
           in: query
           required: false
           schema:
@@ -3284,6 +3302,8 @@ components:
             url: 'http://schema.org/identifier'
           type: string
           format: uuid
+        type:
+          type: string
         organization:
           description: 'A specific commonground organisation'
           externalDocs:
@@ -3291,15 +3311,24 @@ components:
           type: string
           nullable: true
         person:
+          description: 'The URL to the person the certificate is given out for'
           type: string
         claim:
+          description: 'The claim that is verified with this certificate'
+          type: string
+          nullable: true
+        jwt:
+          description: 'The JWT version of the certificate'
           type: array
           items:
             type: string
+          nullable: true
         image:
+          description: 'a PNG-encoded QR-code for the certificate'
           type: string
           nullable: true
         document:
+          description: 'a PDF document containing the JWT version of the certificate and the image'
           type: string
           nullable: true
         dateExpired:
@@ -3318,13 +3347,19 @@ components:
           format: date-time
           nullable: true
       required:
+        - type
         - organization
+        - person
     Certificate-write:
       type: object
       description: 'An entity representing an (variviable) claim.'
       required:
+        - type
         - organization
+        - person
       properties:
+        type:
+          type: string
         organization:
           description: 'A specific commonground organisation'
           externalDocs:
@@ -3332,15 +3367,24 @@ components:
           type: string
           nullable: true
         person:
+          description: 'The URL to the person the certificate is given out for'
           type: string
         claim:
+          description: 'The claim that is verified with this certificate'
+          type: string
+          nullable: true
+        jwt:
+          description: 'The JWT version of the certificate'
           type: array
           items:
             type: string
+          nullable: true
         image:
+          description: 'a PNG-encoded QR-code for the certificate'
           type: string
           nullable: true
         document:
+          description: 'a PDF document containing the JWT version of the certificate and the image'
           type: string
           nullable: true
         dateExpired:
@@ -3368,6 +3412,8 @@ components:
             url: 'http://schema.org/identifier'
           type: string
           format: uuid
+        type:
+          type: string
         organization:
           description: 'A specific commonground organisation'
           externalDocs:
@@ -3375,15 +3421,24 @@ components:
           type: string
           nullable: true
         person:
+          description: 'The URL to the person the certificate is given out for'
           type: string
         claim:
+          description: 'The claim that is verified with this certificate'
+          type: string
+          nullable: true
+        jwt:
+          description: 'The JWT version of the certificate'
           type: array
           items:
             type: string
+          nullable: true
         image:
+          description: 'a PNG-encoded QR-code for the certificate'
           type: string
           nullable: true
         document:
+          description: 'a PDF document containing the JWT version of the certificate and the image'
           type: string
           nullable: true
         dateExpired:
@@ -3402,12 +3457,16 @@ components:
           format: date-time
           nullable: true
       required:
+        - type
         - organization
+        - person
     'Certificate:jsonld-write':
       type: object
       description: 'An entity representing an (variviable) claim.'
       required:
+        - type
         - organization
+        - person
       properties:
         '@context':
           readOnly: true
@@ -3418,6 +3477,8 @@ components:
         '@type':
           readOnly: true
           type: string
+        type:
+          type: string
         organization:
           description: 'A specific commonground organisation'
           externalDocs:
@@ -3425,15 +3486,24 @@ components:
           type: string
           nullable: true
         person:
+          description: 'The URL to the person the certificate is given out for'
           type: string
         claim:
+          description: 'The claim that is verified with this certificate'
+          type: string
+          nullable: true
+        jwt:
+          description: 'The JWT version of the certificate'
           type: array
           items:
             type: string
+          nullable: true
         image:
+          description: 'a PNG-encoded QR-code for the certificate'
           type: string
           nullable: true
         document:
+          description: 'a PDF document containing the JWT version of the certificate and the image'
           type: string
           nullable: true
         dateExpired:
@@ -3566,15 +3636,28 @@ definitions:
         type: string
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
+      type: []
       organization:
         description: 'A specific commonground organisation'
         type: string
         example: 'https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f'
         format: url
-      person: []
-      claim: []
-      image: []
-      document: []
+      person:
+        description: 'The URL to the person the certificate is given out for'
+        type: string
+        example: 'https://waardepapieren-gemeentehoorn.commonground.nu/api/v1/brp/ingeschrevenpersonen/uuid/bc1a8ffb-d428-4a83-a1fc-5f331ea799ce'
+      claim:
+        description: 'The claim that is verified with this certificate'
+        type: string
+      jwt:
+        description: 'The JWT version of the certificate'
+        type: string
+      image:
+        description: 'a PNG-encoded QR-code for the certificate'
+        type: string
+      document:
+        description: 'a PDF document containing the JWT version of the certificate and the image'
+        type: string
       dateExpired:
         description: 'The moment this claim is due to expire'
         type: \DateTime
@@ -3585,23 +3668,40 @@ definitions:
         description: 'The moment this request was modified by the submitter'
         type: \DateTime
     required:
+      - type
       - organization
+      - person
   Certificate-write:
     properties:
+      type: []
       organization:
         description: 'A specific commonground organisation'
         type: string
         example: 'https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f'
         format: url
-      person: []
-      claim: []
-      image: []
-      document: []
+      person:
+        description: 'The URL to the person the certificate is given out for'
+        type: string
+        example: 'https://waardepapieren-gemeentehoorn.commonground.nu/api/v1/brp/ingeschrevenpersonen/uuid/bc1a8ffb-d428-4a83-a1fc-5f331ea799ce'
+      claim:
+        description: 'The claim that is verified with this certificate'
+        type: string
+      jwt:
+        description: 'The JWT version of the certificate'
+        type: string
+      image:
+        description: 'a PNG-encoded QR-code for the certificate'
+        type: string
+      document:
+        description: 'a PDF document containing the JWT version of the certificate and the image'
+        type: string
       dateExpired:
         description: 'The moment this claim is due to expire'
         type: \DateTime
     required:
+      - type
       - organization
+      - person
   AuditTrail-read:
     properties:
       id:
@@ -3706,12 +3806,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-11-24 19:43:49'
+        example: '2020-12-28 13:21:52'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-11-24 19:43:49'
+        example: '2020-12-28 13:21:52'
     required: []
   AuditTrail-write:
     properties:
@@ -3759,12 +3859,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-11-24 19:43:49'
+        example: '2020-12-28 13:21:52'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-11-24 19:43:49'
+        example: '2020-12-28 13:21:52'
     required: []
   ChangeLog-write:
     properties:
