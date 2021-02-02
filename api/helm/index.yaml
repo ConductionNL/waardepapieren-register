@@ -3,10 +3,10 @@ entries:
   pc:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-12-28T13:16:45.2944725Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: c860b1af96831908a11d8bcdcf01479cd2061a4aecaf26b5f9e23aa90f8a42c6
+    created: "2021-02-02T09:52:28.1318969Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 0b48e6b3faa2292b92b7582802ce074575d0d4d05bb3d1e6858e81303e349987
     home: pc.zaakonline.nl
     icon: pc.zaakonline.nl
     name: pc
@@ -14,14 +14,19 @@ entries:
     - pc-0.1.0.tgz
     version: 0.1.0
   postgresql:
-  - apiVersion: v1
-    appVersion: 11.7.0
-    created: "2020-12-28T13:16:45.3317047Z"
-    deprecated: true
-    description: DEPRECATED Chart for PostgreSQL, an object-relational database management
-      system (ORDBMS) with an emphasis on extensibility and on standards-compliance.
-    digest: 00745b88e84403be696b7514c6e8c02710d81eb6074876b0700fa28fd47a9b43
-    home: https://www.postgresql.org/
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 11.10.0
+    created: "2021-02-02T09:52:28.1539808Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 1.x.x
+    description: Chart for PostgreSQL, an object-relational database management system
+      (ORDBMS) with an emphasis on extensibility and on standards-compliance.
+    digest: eebe8f456cf98d5927a35666d1d899174dc4d3e09f26788033f761527bc90749
+    home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
     icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-110x117.png
     keywords:
     - postgresql
@@ -30,23 +35,29 @@ entries:
     - sql
     - replication
     - cluster
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
     name: postgresql
     sources:
     - https://github.com/bitnami/bitnami-docker-postgresql
+    - https://www.postgresql.org/
     urls:
-    - charts/postgresql-8.6.4.tgz
-    version: 8.6.4
+    - charts/postgresql-10.1.1.tgz
+    version: 10.1.1
   wari:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-12-28T13:16:45.3022739Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
-      beschikbaar.
-    digest: ea6b7c2b49fe61e04488fb581c2ff069d5ef88f3ffa5f91be6b9e38ed2bd3d68
+    created: "2021-02-02T09:52:28.1441562Z"
+    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
+      interface beschikbaar.&#039;'
+    digest: b244350cc14a8492018cf7835053930acaee784f323d732b692a365bab0ea729
     home: wari.zaakonline.nl
     icon: wari.zaakonline.nl
     name: wari
     urls:
     - wari-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-28T13:16:45.2867101Z"
+generated: "2021-02-02T09:52:28.1229981Z"
