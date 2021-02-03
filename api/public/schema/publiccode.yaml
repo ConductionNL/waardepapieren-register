@@ -4,7 +4,7 @@ name: wari
 applicationSuite: commonground
 url: "https://github.com/ConductionNL/waardepapieren-register"
 landingURL: "wari.zaakonline.nl"
-    isBasedOn: "https://github.com/ConductionNL/Proto-component-commonground.git"
+isBasedOn: "https://github.com/ConductionNL/Proto-component-commonground.git"
 softwareVersion: "V1.0"
 releaseDate: "2021-02-02"
 logo: wari.zaakonline.nl
@@ -119,5 +119,5 @@ dependsOn:
 
 installations:
     - type: helm
-      url: "https://github.com/ConductionNL/waardepapieren-register/raw/master/api/helm/wari-0.1.0.tgz"
+      url: "https://raw.githubusercontent.com/ConductionNL/waardepapieren-register/master/api/helm/"
 
