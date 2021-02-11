@@ -1,24 +1,11 @@
 apiVersion: v1
 entries:
-  pc:
-  - apiVersion: v1
-    appVersion: V1.0
-    created: "2021-02-02T09:52:28.1318969Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
-      beschikbaar.
-    digest: 0b48e6b3faa2292b92b7582802ce074575d0d4d05bb3d1e6858e81303e349987
-    home: pc.zaakonline.nl
-    icon: pc.zaakonline.nl
-    name: pc
-    urls:
-    - pc-0.1.0.tgz
-    version: 0.1.0
   postgresql:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-02-02T09:52:28.1539808Z"
+    created: "2021-02-11T11:59:39.6780622Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -50,14 +37,14 @@ entries:
   wari:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-02-02T09:52:28.1441562Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: b244350cc14a8492018cf7835053930acaee784f323d732b692a365bab0ea729
+    created: "2021-02-11T11:59:39.651623Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 395f25a951eb9967ffda3cabccca355969b0354f06ad2303a8ab9fa677dc9b6e
     home: wari.zaakonline.nl
     icon: wari.zaakonline.nl
     name: wari
     urls:
     - wari-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-02T09:52:28.1229981Z"
+generated: "2021-02-11T11:59:39.6291484Z"

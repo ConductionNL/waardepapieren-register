@@ -3806,12 +3806,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-02-02 09:58:55'
+        example: '2021-02-11 12:08:11'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-02-02 09:58:55'
+        example: '2021-02-11 12:08:11'
     required: []
   AuditTrail-write:
     properties:
@@ -3859,12 +3859,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-02-02 09:58:55'
+        example: '2021-02-11 12:08:11'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-02-02 09:58:55'
+        example: '2021-02-11 12:08:11'
     required: []
   ChangeLog-write:
     properties:

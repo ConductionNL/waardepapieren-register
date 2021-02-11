@@ -6,7 +6,7 @@ url: "https://github.com/ConductionNL/waardepapieren-register"
 landingURL: "wari.zaakonline.nl"
 isBasedOn: "https://github.com/ConductionNL/Proto-component-commonground.git"
 softwareVersion: "V1.0"
-releaseDate: "2021-02-02"
+releaseDate: "2021-11-02"
 logo: wari.zaakonline.nl
 monochromeLogo: img/logo-mono.svg
 
