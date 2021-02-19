@@ -1,4 +1,4 @@
-# wari
+# waardepapieren-register
 
 Description
 ----

@@ -1,16 +1,16 @@
 openapi: 3.0.2
 info:
-  title: 'Waardepappieren Register'
+  title: ''
   version: V1.0
   description: |
     API Details
-    - Component: Waardepappieren Register
-    - Reference: wari
+    - Component: 
+    - Reference: waardepapieren-register
     - Enviroment: dev
     - Version: V1.0
     - Repository: [online](https://github.com/ConductionNL/waardepapieren-register) / [zip](https://github.com/ConductionNL/waardepapieren-register/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/wari-php) 
-    - Datamodel: [postman](schema/wari.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
+    - Docker Image: [online]() 
+    - Datamodel: [postman](schema/waardepapieren-register.postman_collection.json) / [oas](schema/openapi.yaml) / [pdf](schema/datamodel.pdf) / [modelio (zip)](schema/Datamodel_Modelio.zip) 
     
     Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
@@ -3806,12 +3806,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-02-11 12:08:11'
+        example: '2021-02-19 07:41:40'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-02-11 12:08:11'
+        example: '2021-02-19 07:41:40'
     required: []
   AuditTrail-write:
     properties:
@@ -3859,12 +3859,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2021-02-11 12:08:11'
+        example: '2021-02-19 07:41:40'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2021-02-11 12:08:11'
+        example: '2021-02-19 07:41:40'
     required: []
   ChangeLog-write:
     properties:
@@ -3912,7 +3912,7 @@ host: irc.zaakonline.nl
 servers:
   -
     name: conduction.nl
-    url: wari.dev.conduction.nl
+    url: waardepapieren-register.dev.conduction.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
