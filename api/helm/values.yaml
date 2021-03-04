@@ -7,6 +7,7 @@ settings:
   projectName: waardepapieren-register
   name: waardepapieren-register
   version: V1.0
+  majorVersion: v1
   description: 'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'
   repro: https://github.com/ConductionNL/waardepapieren-register
   demo: wari.zaakonline.nl
@@ -19,6 +20,7 @@ settings:
   debug: 1
   cache: false
   type: component
+  id: 
   replicaCount: 1
   corsAllowOrigin: ['*']
   trustedHosts: '^.+$'
@@ -49,6 +51,18 @@ php:
   env: prod
   secret: ""
   replicaCount: 2
+
+redis:
+  cluster:
+    enabled: false
+  redisPort: 6379
+  usePassword: false
+  enabled: false
+commonground:
+  eherkenning:
+    location: https://conduction.nl/eherkenning
+  digispoof:
+    location: https://conduction.nl/digispoof
 
 nginx:
   repository: docker.io/conduction/protocomponent-nginx
