@@ -107,11 +107,6 @@ parameters:
     env(APP_COMMONGROUND_AC_ID): "%env(APP_COMMONGROUND_ID)%"
     env(APP_COMMONGROUND_AC_SECRET): "%env(APP_COMMONGROUND_SECRET)%"
 
-    # Notificatierouteringcomponent
-    env(APP_COMMONGROUND_NRC_LOCATION): "https://nrc.%env(APP_DOMAIN)%"
-    env(APP_COMMONGROUND_NRC_ID): "%env(APP_COMMONGROUND_ID)%"
-    env(APP_COMMONGROUND_NRC_SECRET): "%env(APP_COMMONGROUND_SECRET)%"
-
     # Zaakregistratiecomponent
     env(APP_COMMONGROUND_ZRC_LOCATION): "https://zrc.%env(APP_DOMAIN)%"
     env(APP_COMMONGROUND_ZRC_ID): "%env(APP_COMMONGROUND_ID)%"
@@ -179,13 +174,6 @@ parameters:
             auth: "jwt"
             id: "%env(APP_COMMONGROUND_AC_ID)%"
             secret: "%env(APP_COMMONGROUND_AC_SECRET)%"
-            accept: "application/json"
-            autowire: false
-        nrc:
-            location: "%env(APP_COMMONGROUND_NRC_LOCATION)%"
-            auth: "jwt"
-            id: "%env(APP_COMMONGROUND_NRC_ID)%"
-            secret: "%env(APP_COMMONGROUND_NRC_SECRET)%"
             accept: "application/json"
             autowire: false
         zrc:
