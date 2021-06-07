@@ -21,6 +21,7 @@ settings:
   cache: false
   type: component
   id: 
+  internal: false
   replicaCount: 1
   corsAllowOrigin: ['*']
   trustedHosts: '^.+$'
@@ -89,7 +90,7 @@ postgresql:
   # Persistent Volume Storage configuration.
   # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
   persistence:
-    enabled: false
+    enabled: true
   pullPolicy: IfNotPresent
 #  image:
 #    repository: postgres
