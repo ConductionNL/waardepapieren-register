@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1625596623">
+  <project timestamp="1625596623">
+    <file name="/srv/api/src/Controller/UserController.php">
+      <class name="App\Controller\UserController" namespace="global">
+        <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+      </class>
+      <line num="24" type="method" name="login" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="33" type="method" name="logout" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <metrics loc="37" ncloc="25" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+    </file>
+    <file name="/srv/api/src/DataFixtures/AppFixtures.php">
+      <class name="App\DataFixtures\AppFixtures" namespace="global">
+        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
+      </class>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="21" type="method" name="load" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <metrics loc="30" ncloc="29" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
+    </file>
+    <file name="/srv/api/src/Entity/Certificate.php">
+      <class name="App\Entity\Certificate" namespace="global">
+        <metrics complexity="22" methods="22" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="0" elements="55" coveredelements="0"/>
+      </class>
+      <line num="172" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="174" type="stmt" count="0"/>
+      <line num="177" type="method" name="setId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="179" type="stmt" count="0"/>
+      <line num="181" type="stmt" count="0"/>
+      <line num="184" type="method" name="getType" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="186" type="stmt" count="0"/>
+      <line num="189" type="method" name="setType" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="191" type="stmt" count="0"/>
+      <line num="193" type="stmt" count="0"/>
+      <line num="196" type="method" name="getOrganization" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="198" type="stmt" count="0"/>
+      <line num="201" type="method" name="setOrganization" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="203" type="stmt" count="0"/>
+      <line num="205" type="stmt" count="0"/>
+      <line num="208" type="method" name="getPerson" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="210" type="stmt" count="0"/>
+      <line num="213" type="method" name="setPerson" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="215" type="stmt" count="0"/>
+      <line num="217" type="stmt" count="0"/>
+      <line num="220" type="method" name="getClaim" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="222" type="stmt" count="0"/>
+      <line num="225" type="method" name="setClaim" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="227" type="stmt" count="0"/>
+      <line num="229" type="stmt" count="0"/>
+      <line num="232" type="method" name="getJwt" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="234" type="stmt" count="0"/>
+      <line num="237" type="method" name="setJwt" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="239" type="stmt" count="0"/>
+      <line num="241" type="stmt" count="0"/>
+      <line num="244" type="method" name="getImage" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="246" type="stmt" count="0"/>
+      <line num="249" type="method" name="setImage" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="251" type="stmt" count="0"/>
+      <line num="253" type="stmt" count="0"/>
+      <line num="256" type="method" name="getDocument" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="258" type="stmt" count="0"/>
+      <line num="261" type="method" name="setDocument" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="263" type="stmt" count="0"/>
+      <line num="265" type="stmt" count="0"/>
+      <line num="268" type="method" name="getDateExpired" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="270" type="stmt" count="0"/>
+      <line num="273" type="method" name="setDateExpired" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="275" type="stmt" count="0"/>
+      <line num="277" type="stmt" count="0"/>
+      <line num="280" type="method" name="getDateCreated" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="282" type="stmt" count="0"/>
+      <line num="285" type="method" name="setDateCreated" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="287" type="stmt" count="0"/>
+      <line num="289" type="stmt" count="0"/>
+      <line num="292" type="method" name="getDateModified" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="294" type="stmt" count="0"/>
+      <line num="297" type="method" name="setDateModified" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="299" type="stmt" count="0"/>
+      <line num="301" type="stmt" count="0"/>
+      <metrics loc="303" ncloc="175" classes="1" methods="22" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="0" elements="55" coveredelements="0"/>
+    </file>
+    <file name="/srv/api/src/Kernel.php">
+      <class name="App\Kernel" namespace="global">
+        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="24" coveredelements="0"/>
+      </class>
+      <line num="18" type="method" name="registerBundles" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="28" type="method" name="getProjectDir" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="33" type="method" name="configureContainer" visibility="protected" complexity="1" crap="2" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="45" type="method" name="configureRoutes" visibility="protected" complexity="1" crap="2" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <metrics loc="53" ncloc="53" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="24" coveredelements="0"/>
+    </file>
+    <file name="/srv/api/src/Repository/CertificateRepository.php">
+      <class name="App\Repository\CertificateRepository" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+      </class>
+      <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <metrics loc="50" ncloc="17" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+    </file>
+    <metrics files="5" loc="473" ncloc="299" classes="5" methods="31" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="64" coveredstatements="0" elements="95" coveredelements="0"/>
+  </project>
+</coverage>
