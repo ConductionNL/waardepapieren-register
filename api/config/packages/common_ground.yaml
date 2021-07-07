@@ -33,7 +33,7 @@ parameters:
     env(APP_CONTAINER): ""
     env(APP_DEMO): "pc.zaakonline.nl"
     env(APP_WEB):
-    env(APP_INTERNAL):
+    env(APP_INTERNAL): "false"
     env(APP_BUILD_ALL_FIXTURES):
     env(APP_URL): "http://localhost"
     env(FACEBOOK_ID): ""
@@ -56,6 +56,7 @@ parameters:
     env(APP_MAJOR_VERSION): "v1"
     env(APP_DIGISPOOF_LOCATION): "https://zuid-drecht.nl/digispoof"
     env(APP_EHERKENNING_LOCATION): "https://zuid-drecht.nl/eherkenning"
+    env(BADGES): ""
 
     app_env: "%env(APP_ENV)%"
     app_container: "%env(APP_CONTAINER)%"
@@ -96,6 +97,7 @@ parameters:
     gmail_secret: "%env(GMAIL_SECRET)%"
     idin_id: "%env(IDIN_ID)%"
     idin_secret: "%env(IDIN_SECRET)%"
+    badges: "%env(BADGES)%"
 
     # Busnes Engine
     env(APP_COMMONGROUND_BE_LOCATION): "https://ac.%env(APP_DOMAIN)%"
@@ -106,6 +108,11 @@ parameters:
     env(APP_COMMONGROUND_AC_LOCATION): "https://ac.%env(APP_DOMAIN)%"
     env(APP_COMMONGROUND_AC_ID): "%env(APP_COMMONGROUND_ID)%"
     env(APP_COMMONGROUND_AC_SECRET): "%env(APP_COMMONGROUND_SECRET)%"
+
+    # Notificatierouteringcomponent
+    env(APP_COMMONGROUND_NRC_LOCATION): "https://nrc.%env(APP_DOMAIN)%"
+    env(APP_COMMONGROUND_NRC_ID): "%env(APP_COMMONGROUND_ID)%"
+    env(APP_COMMONGROUND_NRC_SECRET): "%env(APP_COMMONGROUND_SECRET)%"
 
     # Zaakregistratiecomponent
     env(APP_COMMONGROUND_ZRC_LOCATION): "https://zrc.%env(APP_DOMAIN)%"
@@ -154,7 +161,7 @@ parameters:
     env(APP_COMMONGROUND_STUF_LOCATION): "https://stuf.%env(APP_DOMAIN)%"
     env(APP_COMMONGROUND_STUF_APIKEY): "%env(APP_COMMONGROUND_KEY)%"
 
-    common_ground.components:
+    components:
         be:
             location: "%env(APP_COMMONGROUND_BE_LOCATION)%"
             auth: "username-password"
@@ -174,6 +181,13 @@ parameters:
             auth: "jwt"
             id: "%env(APP_COMMONGROUND_AC_ID)%"
             secret: "%env(APP_COMMONGROUND_AC_SECRET)%"
+            accept: "application/json"
+            autowire: false
+        nrc:
+            location: "%env(APP_COMMONGROUND_NRC_LOCATION)%"
+            auth: "jwt"
+            id: "%env(APP_COMMONGROUND_NRC_ID)%"
+            secret: "%env(APP_COMMONGROUND_NRC_SECRET)%"
             accept: "application/json"
             autowire: false
         zrc:
@@ -320,6 +334,7 @@ twig:
         idin_id: "%env(IDIN_ID)%"
         idin_secret: "%env(IDIN_SECRET)%"
         app_type: "%env(APP_TYPE)%"
+        badges: "%env(BADGES)%"
 
         # Security Details
         app_commonground_id: "%env(APP_COMMONGROUND_ID)%"
