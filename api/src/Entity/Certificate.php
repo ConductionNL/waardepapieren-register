@@ -93,8 +93,6 @@ class Certificate
      * @example https://wrc.zaakonline.nl/organisations/16353702-4614-42ff-92af-7dd11c8eef9f
      *
      * @Gedmo\Versioned
-     * @Assert\NotNull
-     * @Assert\Url
      * @Groups({"read", "write"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -104,10 +102,9 @@ class Certificate
      * @var string The URL to the person the certificate is given out for
      *
      * @example https://waardepapieren-gemeentehoorn.commonground.nu/api/v1/brp/ingeschrevenpersonen/uuid/bc1a8ffb-d428-4a83-a1fc-5f331ea799ce
-     *
-     * @Assert\NotNull
+
      * @Groups({"read", "write"})
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $person;
 
