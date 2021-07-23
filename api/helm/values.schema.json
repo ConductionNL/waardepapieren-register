@@ -70,7 +70,7 @@
                 "enabled": false,
                 "hostname": "contactcatalogus.local",
                 "path": "/",
-                "annotations": [],
+                "annotations": {},
                 "tls": []
             },
             "resources": {}
@@ -705,7 +705,7 @@
                     "enabled": false,
                     "hostname": "contactcatalogus.local",
                     "path": "/",
-                    "annotations": [],
+                    "annotations": {},
                     "tls": []
                 }
             ],
@@ -747,7 +747,7 @@
                 },
                 "annotations": {
                     "$id": "#/properties/ingress/properties/annotations",
-                    "type": "array",
+                    "type": "object",
                     "title": "The annotations schema",
                     "description": ""
                 },
