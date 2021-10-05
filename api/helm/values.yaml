@@ -121,7 +121,7 @@ service:
 ingress:
   enabled: false
   className: "nginx"
-  hostname: webresourcecatalogus.local
+  hostname: waardepapieren-register.local
   path: /
   pathType: ImplementationSpecific
   annotations: {}
