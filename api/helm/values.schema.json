@@ -11,7 +11,17 @@
                 "version": "V1.0",
                 "debug": 0,
                 "cache": true,
-                "internal": false
+                "internal": false,
+                "trustedHosts": "^.+$",
+                "corsAllowOrigin": [
+                    "*"
+                ],
+                "trustedProxies": [
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "192.168.0.0/16"
+                ],
+                "env": "prod"
             },
             "security": {
                 "applicationKey": "45c1a4b6-59d3-4a6e-86bf-88a872f35845",
@@ -25,18 +35,8 @@
                 "repository": "docker.io/conduction/protocomponent-php",
                 "image": "docker.io/conduction/contactcatalogus-php",
                 "tag": "latest",
-                "env": "prod",
                 "replicaCount": 2,
-                "pullPolicy": "Always",
-                "trustedHosts": "^.+$",
-                "corsAllowOrigin": [
-                    "*"
-                ],
-                "trustedProxies": [
-                    "10.0.0.0/8",
-                    "172.16.0.0/12",
-                    "192.168.0.0/16"
-                ]
+                "pullPolicy": "Always"
             },
             "redis": {
                 "cluster": {
@@ -70,8 +70,8 @@
                 "enabled": false,
                 "hostname": "contactcatalogus.local",
                 "path": "/",
-                "annotations": {},
-                "tls": []
+                "annotations": null,
+                "tls": null
             },
             "resources": {}
         }
@@ -84,7 +84,8 @@
         "nginx",
         "postgresql",
         "ingress",
-        "resources"
+        "podSecurityContext",
+        "podAnnotations"
     ],
     "properties": {
         "config": {
@@ -98,14 +99,28 @@
                     "version": "V1.0",
                     "debug": 0,
                     "cache": true,
-                    "internal": false
+                    "internal": false,
+                    "env": "prod",
+                    "trustedHosts": "^.+$",
+                    "corsAllowOrigin": [
+                        "*"
+                    ],
+                    "trustedProxies": [
+                        "10.0.0.0/8",
+                        "172.16.0.0/12",
+                        "192.168.0.0/16"
+                    ]
                 }
             ],
             "required": [
                 "version",
                 "debug",
                 "cache",
-                "internal"
+                "internal",
+                "trustedHosts",
+                "corsAllowOrigin",
+                "trustedProxies",
+                "env"
             ],
             "properties": {
                 "version": {
@@ -147,6 +162,84 @@
                     "examples": [
                         false
                     ]
+                },
+                "env": {
+                    "$id": "#/properties/php/properties/env",
+                    "type": "string",
+                    "title": "The env schema",
+                    "description": "",
+                    "default": "",
+                    "examples": [
+                        "prod"
+                    ]
+                },
+                "trustedHosts": {
+                    "$id": "#/properties/php/properties/trustedHosts",
+                    "type": "string",
+                    "title": "The trustedHosts schema",
+                    "description": "",
+                    "default": "",
+                    "examples": [
+                        "^.+$"
+                    ]
+                },
+                "corsAllowOrigin": {
+                    "$id": "#/properties/php/properties/corsAllowOrigin",
+                    "type": "array",
+                    "title": "The corsAllowOrigin schema",
+                    "description": "",
+                    "default": [],
+                    "examples": [
+                        [
+                            "*"
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/php/properties/corsAllowOrigin/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/php/properties/corsAllowOrigin/items/anyOf/0",
+                                "type": "string",
+                                "title": "The first anyOf schema",
+                                "description": "",
+                                "default": "",
+                                "examples": [
+                                    "*"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "trustedProxies": {
+                    "$id": "#/properties/php/properties/trustedProxies",
+                    "type": "array",
+                    "title": "The trustedProxies schema",
+                    "description": "",
+                    "default": [],
+                    "examples": [
+                        [
+                            "10.0.0.0/8",
+                            "172.16.0.0/12"
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/php/properties/trustedProxies/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/php/properties/trustedProxies/items/anyOf/0",
+                                "type": "string",
+                                "title": "The first anyOf schema",
+                                "description": "",
+                                "default": "",
+                                "examples": [
+                                    "10.0.0.0/8",
+                                    "172.16.0.0/12"
+                                ]
+                            }
+                        ]
+                    }
                 }
             },
             "additionalProperties": true
@@ -235,33 +328,15 @@
             "default": {},
             "examples": [
                 {
-                    "repository": "docker.io/conduction/protocomponent-php",
-                    "image": "docker.io/conduction/contactcatalogus-php",
+                    "repository": "ghcr.io/conductionnl/webresourcecatalogus-php",
                     "tag": "latest",
-                    "env": "prod",
-                    "replicaCount": 2,
-                    "pullPolicy": "Always",
-                    "trustedHosts": "^.+$",
-                    "corsAllowOrigin": [
-                        "*"
-                    ],
-                    "trustedProxies": [
-                        "10.0.0.0/8",
-                        "172.16.0.0/12",
-                        "192.168.0.0/16"
-                    ]
+                    "pullPolicy": "Always"
                 }
             ],
             "required": [
                 "repository",
-                "image",
                 "tag",
-                "env",
-                "replicaCount",
-                "pullPolicy",
-                "trustedHosts",
-                "corsAllowOrigin",
-                "trustedProxies"
+                "pullPolicy"
             ],
             "properties": {
                 "repository": {
@@ -274,16 +349,6 @@
                         "docker.io/conduction/protocomponent-php"
                     ]
                 },
-                "image": {
-                    "$id": "#/properties/php/properties/image",
-                    "type": "string",
-                    "title": "The image schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "docker.io/conduction/contactcatalogus-php"
-                    ]
-                },
                 "tag": {
                     "$id": "#/properties/php/properties/tag",
                     "type": "string",
@@ -292,26 +357,6 @@
                     "default": "",
                     "examples": [
                         "latest"
-                    ]
-                },
-                "env": {
-                    "$id": "#/properties/php/properties/env",
-                    "type": "string",
-                    "title": "The env schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "prod"
-                    ]
-                },
-                "replicaCount": {
-                    "$id": "#/properties/php/properties/replicaCount",
-                    "type": "integer",
-                    "title": "The replicaCount schema",
-                    "description": "",
-                    "default": 0,
-                    "examples": [
-                        2
                     ]
                 },
                 "pullPolicy": {
@@ -323,74 +368,6 @@
                     "examples": [
                         "Always"
                     ]
-                },
-                "trustedHosts": {
-                    "$id": "#/properties/php/properties/trustedHosts",
-                    "type": "string",
-                    "title": "The trustedHosts schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "^.+$"
-                    ]
-                },
-                "corsAllowOrigin": {
-                    "$id": "#/properties/php/properties/corsAllowOrigin",
-                    "type": "array",
-                    "title": "The corsAllowOrigin schema",
-                    "description": "",
-                    "default": [],
-                    "examples": [
-                        [
-                            "*"
-                        ]
-                    ],
-                    "additionalItems": true,
-                    "items": {
-                        "$id": "#/properties/php/properties/corsAllowOrigin/items",
-                        "anyOf": [
-                            {
-                                "$id": "#/properties/php/properties/corsAllowOrigin/items/anyOf/0",
-                                "type": "string",
-                                "title": "The first anyOf schema",
-                                "description": "",
-                                "default": "",
-                                "examples": [
-                                    "*"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "trustedProxies": {
-                    "$id": "#/properties/php/properties/trustedProxies",
-                    "type": "array",
-                    "title": "The trustedProxies schema",
-                    "description": "",
-                    "default": [],
-                    "examples": [
-                        [
-                            "10.0.0.0/8",
-                            "172.16.0.0/12"
-                        ]
-                    ],
-                    "additionalItems": true,
-                    "items": {
-                        "$id": "#/properties/php/properties/trustedProxies/items",
-                        "anyOf": [
-                            {
-                                "$id": "#/properties/php/properties/trustedProxies/items/anyOf/0",
-                                "type": "string",
-                                "title": "The first anyOf schema",
-                                "description": "",
-                                "default": "",
-                                "examples": [
-                                    "10.0.0.0/8",
-                                    "172.16.0.0/12"
-                                ]
-                            }
-                        ]
-                    }
                 }
             },
             "additionalProperties": true
@@ -407,47 +384,16 @@
                         "enabled": false
                     },
                     "redisPort": 6379,
-                    "usePassword": false,
                     "enabled": false,
                     "pullPolicy": "IfNotPresent"
                 }
             ],
             "required": [
-                "cluster",
                 "redisPort",
-                "usePassword",
                 "enabled",
                 "pullPolicy"
             ],
             "properties": {
-                "cluster": {
-                    "$id": "#/properties/redis/properties/cluster",
-                    "type": "object",
-                    "title": "The cluster schema",
-                    "description": "",
-                    "default": {},
-                    "examples": [
-                        {
-                            "enabled": false
-                        }
-                    ],
-                    "required": [
-                        "enabled"
-                    ],
-                    "properties": {
-                        "enabled": {
-                            "$id": "#/properties/redis/properties/cluster/properties/enabled",
-                            "type": "boolean",
-                            "title": "The enabled schema",
-                            "description": "",
-                            "default": false,
-                            "examples": [
-                                false
-                            ]
-                        }
-                    },
-                    "additionalProperties": true
-                },
                 "redisPort": {
                     "$id": "#/properties/redis/properties/redisPort",
                     "type": "integer",
@@ -456,16 +402,6 @@
                     "default": 0,
                     "examples": [
                         6379
-                    ]
-                },
-                "usePassword": {
-                    "$id": "#/properties/redis/properties/usePassword",
-                    "type": "boolean",
-                    "title": "The usePassword schema",
-                    "description": "",
-                    "default": false,
-                    "examples": [
-                        false
                     ]
                 },
                 "enabled": {
@@ -499,43 +435,29 @@
             "default": {},
             "examples": [
                 {
-                    "repository": "docker.io/conduction/protocomponent-nginx",
-                    "image": "docker.io/conduction/contactcatalogus-nginx",
+                    "repository": "ghcr.io/conductionnl/webresourcecatalogus",
                     "tag": "latest",
-                    "pullPolicy": "Always",
-                    "replicaCount": 2
+                    "pullPolicy": "Always"
                 }
             ],
             "required": [
                 "repository",
-                "image",
                 "tag",
-                "pullPolicy",
-                "replicaCount"
+                "pullPolicy"
             ],
             "properties": {
                 "repository": {
-                    "$id": "#/properties/nginx/properties/repository",
+                    "$id": "#/properties/php/properties/repository",
                     "type": "string",
                     "title": "The repository schema",
                     "description": "",
                     "default": "",
                     "examples": [
-                        "docker.io/conduction/protocomponent-nginx"
-                    ]
-                },
-                "image": {
-                    "$id": "#/properties/nginx/properties/image",
-                    "type": "string",
-                    "title": "The image schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "docker.io/conduction/contactcatalogus-nginx"
+                        "docker.io/conduction/protocomponent-php"
                     ]
                 },
                 "tag": {
-                    "$id": "#/properties/nginx/properties/tag",
+                    "$id": "#/properties/php/properties/tag",
                     "type": "string",
                     "title": "The tag schema",
                     "description": "",
@@ -545,23 +467,13 @@
                     ]
                 },
                 "pullPolicy": {
-                    "$id": "#/properties/nginx/properties/pullPolicy",
+                    "$id": "#/properties/php/properties/pullPolicy",
                     "type": "string",
                     "title": "The pullPolicy schema",
                     "description": "",
                     "default": "",
                     "examples": [
                         "Always"
-                    ]
-                },
-                "replicaCount": {
-                    "$id": "#/properties/nginx/properties/replicaCount",
-                    "type": "integer",
-                    "title": "The replicaCount schema",
-                    "description": "",
-                    "default": 0,
-                    "examples": [
-                        2
                     ]
                 }
             },
@@ -589,9 +501,7 @@
             ],
             "required": [
                 "enabled",
-                "imageTag",
-                "persistence",
-                "pullPolicy"
+                "persistence"
             ],
             "properties": {
                 "enabled": {
@@ -602,16 +512,6 @@
                     "default": false,
                     "examples": [
                         true
-                    ]
-                },
-                "imageTag": {
-                    "$id": "#/properties/postgresql/properties/imageTag",
-                    "type": "string",
-                    "title": "The imageTag schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "10-alpine"
                     ]
                 },
                 "url": {
@@ -680,16 +580,6 @@
                         }
                     },
                     "additionalProperties": true
-                },
-                "pullPolicy": {
-                    "$id": "#/properties/postgresql/properties/pullPolicy",
-                    "type": "string",
-                    "title": "The pullPolicy schema",
-                    "description": "",
-                    "default": "",
-                    "examples": [
-                        "IfNotPresent"
-                    ]
                 }
             },
             "additionalProperties": true
@@ -705,8 +595,8 @@
                     "enabled": false,
                     "hostname": "contactcatalogus.local",
                     "path": "/",
-                    "annotations": {},
-                    "tls": []
+                    "annotations": null,
+                    "tls": null
                 }
             ],
             "required": [
