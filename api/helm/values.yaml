@@ -31,28 +31,28 @@ php:
   tag: "latest"
   resources: {}
     # As per helm best practise, we do not enable these values by default,
-    # although we do provide optimal values in the lines below that can be uncommented
-    # limits:
-    #   cpu: 40m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 20m
-    #   memory: 72Mi
+  # although we do provide optimal values in the lines below that can be uncommented
+#    limits:
+#      cpu: 400m
+#      memory: 512Mi
+#    requests:
+#      cpu: 200m
+#      memory: 256Mi
 
 nginx:
   repository: ghcr.io/conductionnl/waardepapieren-register-nginx
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
-  resources: { }
+  resources: {}
     # As per helm best practise, we do not enable these values by default,
-    # although we do provide optimal values in the lines below that can be uncommented
-    # limits:
-    #   cpu: 40m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 20m
-    #   memory: 72Mi
+  # although we do provide optimal values in the lines below that can be uncommented
+#    limits:
+#      cpu: 200m
+#      memory: 128Mi
+#    requests:
+#      cpu: 100m
+#      memory: 64Mi
 
 redis:
   enabled: false
@@ -98,20 +98,13 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext: {}
-#  Differs per cluster provider. Uncomment the following lines for use on Azure
-#  privileged: false
-#  readOnlyRootFilesystem: true
-#  allowPrivilegeEscalation: false
-#  runAsNonRoot: true
-#  runAsUser: 1000
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: false
+#  runAsUser: 1000
 
 service:
   type: ClusterIP

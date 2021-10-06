@@ -5,7 +5,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.13.0
-    created: "2021-10-05T15:28:51.496431+02:00"
+    created: "2021-10-06T10:09:25.5092629+02:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.2.5
-    created: "2021-10-05T15:28:51.5092107+02:00"
+    created: "2021-10-06T10:09:25.5418065+02:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -73,7 +73,7 @@ entries:
       artifacthub.io/containsSecurityUpdates: "true"
     apiVersion: v2
     appVersion: V1.0
-    created: "2021-10-05T15:28:51.4863198+02:00"
+    created: "2021-10-06T10:09:25.483132+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -83,7 +83,7 @@ entries:
       name: redis
       repository: https://charts.bitnami.com/bitnami
       version: 15.3.2
-    digest: a1543d45b651eb7035010c276119a8a82aa27301c914b3a581437cdab012d2d5
+    digest: 679db76e14831aace07ee3739f62cc0658720c8be47bbbb315985bb1ecbd74f2
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -107,7 +107,7 @@ entries:
       artifacthub.io/containsSecurityUpdates: "true"
     apiVersion: v2
     appVersion: V1.0
-    created: "2021-10-05T15:28:51.4659532+02:00"
+    created: "2021-10-06T10:09:25.4357199+02:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -141,7 +141,7 @@ entries:
     version: 1.0.0
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-10-05T15:28:51.447244+02:00"
+    created: "2021-10-06T10:09:25.4023251+02:00"
     description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
       beschikbaar.
     digest: e533aa4a112288fcf282280c99a751bfa0a45351a17427305b84a75508796353
@@ -164,4 +164,4 @@ entries:
     urls:
     - waardepapieren-register-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-05T15:28:51.436536+02:00"
+generated: "2021-10-06T10:09:25.3825836+02:00"
